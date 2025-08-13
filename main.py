@@ -1,5 +1,7 @@
 import pygame
 from board import Board
+from server import Server
+from client import Client
 
 # GUI  Components
 
@@ -88,8 +90,16 @@ class App():
         print("Pressed Bot Chess")
 
     def run_online_chess(self):
-        print("Pressed Online Chess")
-  
+        """
+        Server().create()
+    
+        self.username = input("Enter your username: ")
+        Client(self.username).joins_server() 
+
+
+        """
+        print("hello online") 
+
     def setting_screen(self):
         title = self.title_font.render("CHESS", True, self.BLACK)
 
@@ -101,7 +111,7 @@ class App():
 
     def game(self):
         pygame.display.flip()
-        self.clock.tick() 
+        self.clock.tick(60) 
         self.screen.fill("white")
 
         self.setting_screen()
