@@ -74,6 +74,13 @@ class App():
 
         self.BLACK = (0, 0, 0)
 
+        self.setup_ui()
+
+    def setup_ui(self):
+        self.playButton = Button(450, 250, 400, 100, self.screen, 'Play', self.run_bot_chess, True)
+        self.onlineButton = Button(450, 400, 400, 100, self.screen, 'Online', self.run_online_chess, True)
+        self.quitButton = Button(450, 550, 400, 100, self.screen, 'Quit', self.closeApp, True)
+        
     def closeApp(self):
         self.running = False
 
@@ -87,14 +94,10 @@ class App():
         title = self.title_font.render("CHESS", True, self.BLACK)
 
         self.screen.blit(title, (600, 50))
-
-        playButton = Button(450, 250, 400, 100, self.screen, 'Play', self.run_bot_chess, True)
-        onlineButton = Button(450, 400, 400, 100, self.screen, 'Online', self.run_online_chess, True)
-        quitButton = Button(450, 550, 400, 100, self.screen, 'Quit', self.closeApp, True)
         
-        playButton.process()
-        onlineButton.process()
-        quitButton.process()
+        self.playButton.process()
+        self.onlineButton.process()
+        self.quitButton.process()
 
     def game(self):
         pygame.display.flip()
